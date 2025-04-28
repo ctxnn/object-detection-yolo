@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv8 Object Detection Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .demo-section {
+            margin-bottom: 30px;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            white-space: pre;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .inline-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .inline-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>YOLOv8 Object Detection Demo</h1>
+    
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="section-title">About This Demo</h2>
+            <p>
+                This demo showcases YOLOv8 object detection capabilities. YOLOv8 is a state-of-the-art object detection model 
+                that can detect various objects in images with high accuracy and speed.
+            </p>
+            <p>
+                The notebooks and code provided in this repository allow you to:
+            </p>
+            <ul>
+                <li>Upload your own images for object detection</li>
+                <li>Visualize detection results with bounding boxes, class labels, and confidence scores</li>
+                <li>Process multiple images in batch mode</li>
+                <li>Perform real-time object detection with a webcam</li>
+                <li>Adjust detection parameters to optimize results</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2 class="section-title">Try It In Colab or Kaggle</h2>
+            <p>
+                To try the image upload and object detection functionality yourself, open one of the following notebooks in Google Colab or Kaggle:
+            </p>
+            <div class="code-block">
+# Open in Google Colab
+https://colab.research.google.com/github/yourusername/object-detection-yolo/blob/main/notebooks/03_Image_Upload_Object_Detection.ipynb
+
+# Open in Kaggle
+https://www.kaggle.com/code/yourusername/object-detection-yolo/notebooks/03_Image_Upload_Object_Detection.ipynb
+            </div>
+            
+            <p>
+                <a href="https://colab.research.google.com/github/yourusername/object-detection-yolo/blob/main/notebooks/03_Image_Upload_Object_Detection.ipynb" class="button" target="_blank">Open in Colab</a>
+                <a href="https://www.kaggle.com/code/yourusername/object-detection-yolo/notebooks/03_Image_Upload_Object_Detection.ipynb" class="button" target="_blank">Open in Kaggle</a>
+            </p>
+        </div>
+
+        <div class="demo-section">
+            <h2 class="section-title">Sample Detection Results</h2>
+            <p>
+                Here are some sample detection results using YOLOv8:
+            </p>
+            
+            <h3>Sample 1: Street Scene</h3>
+            <img src="https://ultralytics.com/images/zidane.jpg" alt="Original Image">
+            <p>Original Image</p>
+            
+            <p>After detection (visualization with bounding boxes, labels, and confidence scores):</p>
+            <img src="https://raw.githubusercontent.com/ultralytics/assets/main/im/zidane-result.jpg" alt="Detection Result">
+            
+            <h3>Sample 2: Traffic Scene</h3>
+            <img src="https://ultralytics.com/images/bus.jpg" alt="Original Image">
+            <p>Original Image</p>
+            
+            <p>After detection (visualization with bounding boxes, labels, and confidence scores):</p>
+            <img src="https://raw.githubusercontent.com/ultralytics/assets/main/im/bus-result.jpg" alt="Detection Result">
+        </div>
+
+        <div class="demo-section">
+            <h2 class="section-title">How To Use The Notebooks</h2>
+            <p>
+                The image upload and detection notebook provides a simple interface to perform object detection on your images. Here's a quick guide:
+            </p>
+            
+            <ol>
+                <li>
+                    <strong>Run the environment setup cells</strong> at the beginning of the notebook to install necessary dependencies.
+                </li>
+                <li>
+                    <strong>Choose your image source</strong>: You can either upload your own images or use sample images.
+                </li>
+                <li>
+                    <strong>Run detection</strong>: The notebook will process your images and display the detection results.
+                </li>
+                <li>
+                    <strong>Analyze results</strong>: The notebook provides detailed analysis of the detection results, including class distributions and confidence scores.
+                </li>
+                <li>
+                    <strong>Tune parameters</strong>: You can adjust detection parameters like confidence threshold and IoU threshold to optimize results.
+                </li>
+                <li>
+                    <strong>Save results</strong>: You can save detection results as images and JSON files for further use.
+                </li>
+            </ol>
+        </div>
+
+        <div class="demo-section">
+            <h2 class="section-title">Python Code Example</h2>
+            <p>
+                Here's a simple example of how to use the YOLOv8 detector in Python:
+            </p>
+            
+            <div class="code-block">
+from src.yolo_detector import YOLOv8Detector
+import cv2
+import matplotlib.pyplot as plt
+
+# Initialize the detector
+detector = YOLOv8Detector(model_size='n', conf=0.25, iou=0.45)
+
+# Path to your image
+image_path = 'path/to/your/image.jpg'
+
+# Perform detection
+result = detector.detect(image_path, show_result=True)
+
+# Save the detection result
+detection_img = result.plot()
+cv2.imwrite('detection_result.jpg', detection_img)
+
+# Print detection information
+boxes = result.boxes
+for i, box in enumerate(boxes):
+    class_id = int(box.cls.item())
+    class_name = detector.class_names[class_id]
+    confidence = box.conf.item()
+    bbox = box.xyxy[0].tolist()  # xyxy format is [x1, y1, x2, y2]
+    
+    print(f"Object {i+1}: {class_name} (Confidence: {confidence:.2f})")
+    print(f"  Bounding box: {bbox}")
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2 class="section-title">Resources</h2>
+            <ul>
+                <li><a href="https://github.com/yourusername/object-detection-yolo" class="inline-link" target="_blank">Project GitHub Repository</a></li>
+                <li><a href="https://docs.ultralytics.com/" class="inline-link" target="_blank">Ultralytics YOLOv8 Documentation</a></li>
+                <li><a href="https://pytorch.org/docs/stable/index.html" class="inline-link" target="_blank">PyTorch Documentation</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

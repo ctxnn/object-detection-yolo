@@ -1,0 +1,106 @@
+# YOLOv8 Object Detection Default Configuration
+
+# Project paths
+paths:
+  data_dir: data
+  output_dir: models
+  logs_dir: logs
+  results_dir: results
+
+# Dataset configuration
+dataset:
+  name: coco  # Can also be "custom"
+  type: detection  # Options: detection, segmentation, classification
+  img_size: 640  # Input image size (pixels)
+  batch_size: 16  # Batch size for training
+  workers: 4  # Number of data loading workers
+  
+  # COCO specific
+  coco:
+    # If you're using a subset of COCO or have placed it in a specific directory
+    root_dir: coco_dataset
+    download_train: false  # Set to true to download training data (~19GB)
+    download_val: true    # Set to true to download validation data
+
+# Training configuration
+training:
+  # Basic training parameters
+  epochs: 100
+  patience: 10  # Early stopping patience
+  optimizer: Adam  # Options: Adam, SGD, AdamW
+  lr: 0.001
+  weight_decay: 0.0005
+  momentum: 0.937  # Only used for SGD
+  
+  # Learning rate scheduler
+  scheduler: cosine  # Options: cosine, step, exp, plateau
+  warmup_epochs: 3
+  warmup_momentum: 0.8
+  
+  # Data augmentation
+  augment: true
+  mosaic: true
+  mixup: true
+  degrees: 0.0  # Image rotation (+/- deg)
+  translate: 0.1  # Image translation (+/- fraction)
+  scale: 0.5  # Image scale (+/- gain)
+  shear: 0.0  # Image shear (+/- deg)
+  perspective: 0.0  # Image perspective (+/- fraction)
+  
+  # Model saving
+  save_period: 10  # Save checkpoint every X epochs
+  save_best: true  # Save best checkpoint
+  
+  # Transfer learning
+  pretrained: true  # Start from pretrained weights
+  freeze: false  # Freeze backbone layers
+
+# Model configuration
+model:
+  type: yolov8n  # Options: yolov8n, yolov8s, yolov8m, yolov8l, yolov8x
+  num_classes: 80  # Number of classes in dataset
+  
+  # Advanced model parameters (only change if you know what you're doing)
+  depth_multiple: 0.33  # Model depth multiple
+  width_multiple: 0.25  # Layer channel multiple
+  
+  # Hyperparameters
+  box: 7.5  # Box loss gain
+  cls: 0.5  # Class loss gain
+  dfl: 1.5  # Distribution focal loss gain
+  
+  # NMS parameters
+  conf_thres: 0.25  # Confidence threshold
+  iou_thres: 0.45  # IoU threshold
+
+# Evaluation configuration
+evaluation:
+  iou_thres: 0.65  # IoU threshold for evaluation
+  max_det: 300  # Maximum detections per image
+  
+  # Metrics to compute
+  metrics:
+    - map  # Mean Average Precision
+    - map_50  # mAP at IoU=0.5
+    - map_75  # mAP at IoU=0.75
+    - precision  # Precision
+    - recall  # Recall
+    - f1  # F1 score
+
+# Real-time detection configuration
+realtime:
+  source: 0  # Source for real-time detection (0 for webcam)
+  conf_thres: 0.25  # Confidence threshold
+  iou_thres: 0.45  # IoU threshold for NMS
+  max_det: 1000  # Maximum detections per frame
+  line_thickness: 3  # Bounding box thickness (pixels)
+  hide_labels: false  # Hide labels
+  hide_conf: false  # Hide confidences
+
+# Export configuration
+export:
+  format: onnx  # Options: torchscript, onnx, openvino, tensorrt
+  dynamic: true  # Use dynamic axes in ONNX export
+  simplify: true  # Simplify ONNX model
+  opset: 17  # ONNX opset version
+  int8: false  # Quantize model to int8
