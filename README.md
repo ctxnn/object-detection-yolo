@@ -179,24 +179,3 @@ The project is designed to be easily customizable:
 
 See `docs/Implementation_Guide.md` for detailed customization instructions.
 
-## License
-
-This project is released under the MIT License.
-
-## Acknowledgements
-
-- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
-- [COCO Dataset](https://cocodataset.org/)
-- [PyTorch](https://pytorch.org/)
-
-## Citation
-
-If you use this project in your research or work, please cite:
-```
-@software{object_detection_yolo,
-  author = {Your Name},
-  title = {Object Detection using Pre-trained YOLO Models with PyTorch},
-  year = {2023},
-  url = {https://github.com/yourusername/object-detection-yolo}
-}
-```
